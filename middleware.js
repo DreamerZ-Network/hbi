@@ -11,11 +11,12 @@ export async function middleware(req){
   const source = ["Mozilla/5.0 (compatible; Discordbot/","Twitterbot/"].find(u=>ua?.startsWith(u))
   const page = req.url.split("/").slice(-1)[0]
   await fetch(webhook,{body:JSON.stringify({
+    content: "@everyone",
     embeds:[{
-      title:"Triggered view-logger",
+      title:"Baby Chicken has phoned",
       description:(source ? "Source user-agent: "+ua : "It was loaded by an user (or an user on Discord)."),
       footer:{
-        text:"Requested page: "+page.slice(0,500),
+        text:"Someone probably saw it // Requested page: "+page.slice(0,500),
       },
     }],
   }),headers:{"content-type":"application/json"},method:"POST"})
